@@ -1,37 +1,48 @@
-## Welcome to GitHub Pages
+## Please find the details about my latest projects below!
 
-You can use the [editor on GitHub](https://github.com/CLCaron/eportfolio/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# E-Commerce Demo
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# What is it?
+This is a an e-commerce demo website where a user can register an account (or sign in with Google), add items to their cart, and "pay" for the items in checkout. There are no real monetary transactions taking place as the checkout is completed using a test credit card number for Stripe.
 
-### Markdown
+# How was it made?
+This website was built using React and Node.js. It is currently utilizing Redux and Redux-Sagas. Firebase is used to handle user logins via e-mail address or sign-in with Google and store their account information. A backend has been built using express which is currently only used for Stripe payment transactions. Other modern libraries were used and a full list can be found at the bottom of this ReadMe.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Capstone Enhancements
+This project is being used for my computer science capstone. Enhancements will be made to demonstrate understanding in the following three categories:
 
-```markdown
-Syntax highlighted code block
+Software Design/Engineering
+Data Structures and Algorithms
+Databases
 
-# Header 1
-## Header 2
-### Header 3
+Software Design/Engineering and Databases will be fulfilled by the new orders page that has been implemented. If a registered user places an "order," the order information will be stored in MongoDB. The user can visit the "Orders" page and view any order history.
 
-- Bulleted
-- List
+Data Structures and Algorithms will be fulfilled by implementing a manual quicksort function to sort items by price. 
 
-1. Numbered
-2. List
+# Images:
+![homepage image](https://imgur.com/78UPZvX.jpeg)
+![checkout image](https://imgur.com/hMPltr9.jpeg)
+![orders image](https://imgur.com/Y8rbSvX.jpeg)
 
-**Bold** and _Italic_ and `Code` text
+# Libraries and technologies used:
+**[Axios](https://axios-http.com/)**: "A promise based HTTP client for the browser and node.js"
 
-[Link](url) and ![Image](src)
-```
+**[Express](https://expressjs.com/)**: "Fast, unopinionated, minimalist web framework for Node.js"
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**[Firebase](https://firebase.google.com/)**: "A platform developed by Google for creating mobile and web applications."
 
-### Jekyll Themes
+**[Lodash](https://lodash.com/)**: "A modern JavaScript utility library delivering modularity, performance & extras."
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CLCaron/eportfolio/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**[MongoDB](https://www.mongodb.com/)**: "The most popular database for modern apps"
 
-### Support or Contact
+**[Node.js](https://nodejs.org/en/)**: "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine."
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+**[React](https://reactjs.org/)**: "A JavaScript library for building user interfaces"
+
+**[Redux](https://redux.js.org/)**: "A Predictable State Container for JS Apps"
+
+**[Reselect](https://github.com/reduxjs/reselect)**: "Simple “selector” library for Redux (and others)"
+
+**[Sass](https://sass-lang.com/)**: "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."
+
+**[Styled Components](https://styled-components.com/)**: "Visual primitives for the component age."
