@@ -1,4 +1,4 @@
-## Please find the details about my latest projects below!
+## Welcome to Christopher Caron's ePortfolio!
 
 # E-Commerce Demo
 
