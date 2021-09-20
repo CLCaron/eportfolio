@@ -1,6 +1,7 @@
 ## Welcome to Christopher Caron's ePortfolio!
 
 # E-Commerce Demo
+**[View on GitHub](https://github.com/CLCaron/e-commerce-demo)**
 
 # What is it?
 This is a an e-commerce demo website where a user can register an account (or sign in with Google), add items to their cart, and "pay" for the items in checkout. There are no real monetary transactions taking place as the checkout is completed using a test credit card number for Stripe.
