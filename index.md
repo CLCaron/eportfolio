@@ -20,6 +20,9 @@ Software Design/Engineering and Databases will be fulfilled by the new orders pa
 
 Data Structures and Algorithms will be fulfilled by implementing a manual quicksort function to sort items by price. 
 
+# Code Review
+**[View on YouTube](https://youtu.be/C7BVQWipZbc)**
+
 # Images:
 ![homepage image](https://imgur.com/78UPZvX.jpeg)
 ![checkout image](https://imgur.com/hMPltr9.jpeg)
