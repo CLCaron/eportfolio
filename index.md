@@ -23,6 +23,94 @@ Data Structures and Algorithms will be fulfilled by implementing a manual quicks
 # Code Review
 **[View on YouTube](https://youtu.be/C7BVQWipZbc)**
 
+# Enhancement One
+An Orders page was created! An image can be viewed below. Note: This enhancement involved working with MongoDB to become fully functionality. The details regarding the work with MongoDB can be found under Enhancement Three
+
+This enhancement involved the following:
+
+* Creating a new Orders page component, under the pages directory
+* Creating a route to the Orders page in App.js
+* A link to click on for the Orders page in the header
+* Creating an Order component that can be reused on the Orders page, in the components directory. The order info to be displayed in this component is passed in from the parent component (Orders), where React Hooks are used in conjunction with the Axios library to fetch the order data (stored in MongoDB)
+*  Giving the Orders page access to the currentUser object using Redux selectors so that the user's firestore ID can be stored in MongoDB (orders are tied to a Firestore ID as sign-up/sign-in/authentication is handled with Firebase until a full migration to MongoDB)
+*  Mapping over the retrieved orders only once upon the Orders page being loaded and returning an Order component for each order, to be displayed on the Orders page
+*  Implementing Axios to make requests to the Express server, and connecting to MongoDB in server.js
+
+# Enhancement Two
+A quicksort function was written and replaced the default ".sort()" JS function that was previously being used for sorting items on a collection page!
+
+This enhancement involved an understanding of data structures and algorithms. I needed to understand how arrays work, how to use the data in the array, recursion, and the logic for sorting the data. The full code for this quicksort can be seen below:
+
+<pre><code>  const swap = (items, leftIndex, rightIndex) => {
+    let tmp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = tmp;
+  };
+
+  const partition = useCallback((items, left, right) => {
+    let pivot = items[Math.floor((right + left) / 2)].price, // This gives us the middle element
+      i = left, // This is the left pointer
+      j = right; // This is the right pointer
+
+    while (i <= j) {
+      while (items[i].price < pivot) {
+        i++;
+      }
+
+      while (items[j].price > pivot) {
+        j--;
+      }
+
+      if (i <= j) {
+        swap(items, i, j); // This is what actually swaps two elements.
+        i++;
+        j--;
+      }
+    }
+
+    return i;
+  }, []);
+
+  const quickSort = useCallback(
+    (items, left, right) => {
+      let index;
+      if (items.length > 1) {
+        index = partition(items, left, right); // This is the index that is returned from partition
+
+        if (left < index - 1) {
+          // Check if more elements on left side of the pivot
+          quickSort(items, left, index - 1);
+        }
+
+        if (index < right) {
+          // Check if more elements on the right side of the pivot
+          quickSort(items, index, right);
+        }
+      }
+
+      return items;
+    },
+    [partition]
+  );</code></pre>
+
+# Enhancement Three
+MongoDB was implemented and create/update and read operations were implemented! This enhancement ties in a bit with enhancement one, as enhancement one needed these database operations to be fully functional.
+
+This enhancement involved the following:
+
+* Installing MongoDB
+* Connecting the database to the existing application
+    * Modified server.js to use mongoose.connect, db.on to log any error, and db.once to log "Connected to database..." only ONCE after successfull connection
+* Creating a User model/schema with an array of orders
+    * Created a user.js file in a new "models" directory which models the user: firestoreID, name, email, address, array of orders 
+* Writing queries for inserting/updating and reading from the database
+    * Created a users.js file in a new "routes" directory.
+        - Wrote a getUser function using MongoDB's findOne operation and passing in firestore ID from the req params
+        - Wrote a function (currently unused) to retreive all user documents from the DB
+        - Wrote a function to retreive one user's orders, utilizing the getUser function and res.json that user's orders
+        - Wrote a create/update function which creates an address object from the Stripe payment token from the request, an order (orderID generated with UUID, orderDate, orderedItems, total, customerName, customerEmail, and address set to the previously created address object) from the body and token in the request. Utilizes findOneAndUpdate on the User model. Finds user by firestoreId. If the user exists, the order in the request will be pushed onto the document's orders array. If the user does not exist, a new user with the new order and their Firestore ID will be created. This was accomplished using MongoDB's upsert flag.
+    * Integrated this database code with the Express and Axios libraries as mentioned in Enhancement One so that orders can be displayed in the Orders page
+
 # Images:
 ![homepage image](https://imgur.com/78UPZvX.jpeg)
 ![checkout image](https://imgur.com/hMPltr9.jpeg)
