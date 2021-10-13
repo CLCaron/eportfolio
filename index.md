@@ -42,6 +42,8 @@ This enhancement involved the following:
 *  Mapping over the retrieved orders only once upon the Orders page being loaded and returning an Order component for each order, to be displayed on the Orders page
 *  Implementing Axios to make requests to the Express server, and connecting to MongoDB in server.js
 
+This enhancement was created because any online store needs an “orders” page. If a customer is placing an order, they should be able to review that order in the future. I felt that this was a great exercise to perform. I believe that the knowledge required for this enhancement showcases my understanding of software engineering/design. This enhancement involved understanding a database as well as connecting that database to an application and using the data. I needed to make an entirely new page for a user to visit with entirely new functionality, new React components, and new technologies/libraries to complete this enhancement.
+
 # Enhancement Two
 A quicksort function was written and replaced the default ".sort()" JS function that was previously being used for sorting items on a collection page!
 
@@ -98,6 +100,8 @@ This enhancement involved an understanding of data structures and algorithms. I 
     },
     [partition]
   );</code></pre>
+  
+This enhancement was created because I believe any online store should allow a user to sort items by price. Much like my decision for the software engineering/design enhancement, I felt that this was a great exercise because it is similar to a real-world scenario enhancement. More importantly, I feel that this enhancement demonstrates my understanding of data structures and algorithms quite well. I needed to understand how arrays work, how to use the data in the array, recursion, and the logic itself for sorting. There is a lot going on in my quicksort method, as can be seen above.
 
 # Enhancement Three
 MongoDB was implemented and create/update and read operations were implemented! This enhancement ties in a bit with enhancement one, as enhancement one needed these database operations to be fully functional.
@@ -116,6 +120,8 @@ This enhancement involved the following:
         - Wrote a function to retreive one user's orders, utilizing the getUser function and res.json that user's orders
         - Wrote a create/update function which creates an address object from the Stripe payment token from the request, an order (orderID generated with UUID, orderDate, orderedItems, total, customerName, customerEmail, and address set to the previously created address object) from the body and token in the request. Utilizes findOneAndUpdate on the User model. Finds user by firestoreId. If the user exists, the order in the request will be pushed onto the document's orders array. If the user does not exist, a new user with the new order and their Firestore ID will be created. This was accomplished using MongoDB's upsert flag.
     * Integrated this database code with the Express and Axios libraries as mentioned in Enhancement One so that orders can be displayed in the Orders page
+    
+This enhancement was accomplished alongside enhancement one. It was necessary to create a database with create, read, and update operations to complete enhancement one. As stated in the reflection of enhancement one, this enhancement involved an understanding of databases. I needed to understand how to use MongoDB by installing it and implementing it in my application as well as writing a schema with the create, read, and update operations which are performed via GET and POST requests. None of this would be possible without an understanding of databases, so I feel that this demonstrates my knowledge on this subject quite well.
 
 # Images:
 ![homepage image](https://imgur.com/78UPZvX.jpeg)
